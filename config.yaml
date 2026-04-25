@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────
+#  Phishing Detector — Central Configuration
+# ─────────────────────────────────────────────
+
+data:
+  raw_path: "data/phishing_dataset.csv"
+  test_size: 0.2
+  random_state: 42
+
+features:
+  numeric:
+    - url_length
+    - num_dots
+    - num_hyphens
+    - num_at
+    - num_question
+    - num_ampersand
+    - num_digits
+    - subdomain_count
+    - path_length
+    - entropy
+    - domain_age_days
+  binary:
+    - has_https
+    - has_ip
+    - tld_suspicious
+  target: label
+
+model:
+  type: "RandomForest"          # RandomForest | LogisticRegression | GradientBoosting
+  save_path: "models/phishing_model.pkl"
+  scaler_path: "models/scaler.pkl"
+  params:
+    RandomForest:
+      n_estimators: 200
+      max_depth: 15
+      min_samples_split: 5
+      class_weight: "balanced"
+      random_state: 42
+    LogisticRegression:
+      C: 1.0
+      max_iter: 1000
+      class_weight: "balanced"
+      random_state: 42
+    GradientBoosting:
+      n_estimators: 150
+      learning_rate: 0.1
+      max_depth: 5
+      random_state: 42
+
+output:
+  reports_dir: "outputs/"
+  logs_dir: "logs/"
+  log_file: "logs/phishing_detector.log"
+
+threshold: 0.5    # Prediction probability threshold
