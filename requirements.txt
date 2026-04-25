@@ -1,0 +1,25 @@
+# ─────────────────────────────────────────────
+#  Phishing Detector — Python Dependencies
+# ─────────────────────────────────────────────
+
+# Core data science
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.1
+
+# Machine learning
+scikit-learn==1.5.0
+imbalanced-learn==0.12.3
+joblib==1.4.2
+
+# Visualization
+matplotlib==3.9.0
+seaborn==0.13.2
+
+# Configuration
+pyyaml==6.0.1
+
+# Notebook support (optional — for running notebooks/)
+jupyter==1.0.0
+ipykernel==6.29.5
+nbformat==5.10.4
